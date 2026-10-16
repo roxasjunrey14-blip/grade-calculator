@@ -34,6 +34,7 @@ def get_transmuted_grade(score: float) -> tuple[str, str]:
 def main():
     print("=== Student Grade Calculator ===")
     student_name = input("Enter Student Name: ").strip()
+    student_id = input("Enter Student ID / Section: ").strip()
     
     quiz = get_valid_score("Enter Quiz Score (25%): ")
     assignment = get_valid_score("Enter Assignment Score (15%): ")
@@ -42,7 +43,22 @@ def main():
     
     final_grade = calculate_grade(quiz, assignment, midterm, final_exam)
     gpa, remarks = get_transmuted_grade(final_grade)
-    print(f"\nFinal Grade for {student_name}: {final_grade:.2f}% | Rating: {gpa} ({remarks})")
+    
+    print("\n" + "=" * 54)
+    print("            OFFICIAL GRADE REPORT CARD            ")
+    print("=" * 54)
+    print(f" Student Name : {student_name}")
+    print(f" Student ID   : {student_id}")
+    print("-" * 54)
+    print(f"  Component            | Weight | Score  | Weighted")
+    print("-" * 54)
+    print(f"  Quizzes              |  25%   | {quiz:6.2f} | {quiz * 0.25:6.2f}")
+    print(f"  Assignments/Acts     |  15%   | {assignment:6.2f} | {assignment * 0.15:6.2f}")
+    print(f"  Midterm Examination  |  30%   | {midterm:6.2f} | {midterm * 0.30:6.2f}")
+    print(f"  Final Examination    |  30%   | {final_exam:6.2f} | {final_exam * 0.30:6.2f}")
+    print("-" * 54)
+    print(f" Final Grade Output: {final_grade:.2f}% | Scale: {gpa} ({remarks})")
+    print("=" * 54)
 
 if __name__ == "__main__":
     main()
