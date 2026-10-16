@@ -42,7 +42,7 @@ def main():
     
     final_grade = calculate_grade(quiz, assignment, midterm, final_exam)
     gpa, remarks = get_transmuted_grade(final_grade)
-    print(f"\nFinal Grade for {student_name}: {final_grade:.2f}% | Rating: {gpa} ({remarks})")
+    print(f"\n[SUMMARY] Student {student_name.upper()} - Final Grade Output: {final_grade:.2f}% (Rating: {gpa} - {remarks})")
 
 if __name__ == "__main__":
     main()
